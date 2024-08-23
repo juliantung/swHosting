@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products</title>
+  <link rel="stylesheet" href="catstyles.css">
+  <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico">
+
+    <!-- PNG versions -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+
+    <!-- Manifest (for progressive web apps) -->
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+
+</head>
+<body>
+  <div class="slider" x-data="{start: true, end: false}" style="padding-top: 150px;">
+    <div class="slider__content" x-ref="slider" x-on:scroll.debounce="$refs.slider.scrollLeft == 0 ? start = true : start = false; Math.abs(($refs.slider.scrollWidth - $refs.slider.offsetWidth) - $refs.slider.scrollLeft) < 5 ? end = true : end = false;">
+      <div class="slider__item">
+        <img class="slider__image" src="https://irp.cdn-website.com/a977111b/dms3rep/multi/YOUR.jpg" alt="Image">
+        <div class="slider__info">
+          <h2>Product 1</h2>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://irp.cdn-website.com/a977111b/dms3rep/multi/YOUR.jpg" alt="Image">
+        <div class="slider__info">
+          <h2>Product 2</h2>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://irp.cdn-website.com/a977111b/dms3rep/multi/YOUR.jpg" alt="Image">
+        <div class="slider__info">
+          <h2>Product 3</h2>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://irp.cdn-website.com/a977111b/dms3rep/multi/YOUR.jpg" alt="Image">
+        <div class="slider__info">
+          <h2>Product 4</h2>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://irp.cdn-website.com/a977111b/dms3rep/multi/YOUR.jpg" alt="Image">
+        <div class="slider__info">
+          <h2>Product 5</h2>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://irp.cdn-website.com/a977111b/dms3rep/multi/YOUR.jpg" alt="Image">
+        <div class="slider__info">
+          <h2>Product 6</h2>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://irp.cdn-website.com/a977111b/dms3rep/multi/YOUR.jpg" alt="Image">
+        <div class="slider__info">
+          <h2>Product 7</h2>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://irp.cdn-website.com/a977111b/dms3rep/multi/YOUR.jpg" alt="Image">
+        <div class="slider__info">
+          <h2>Product 8</h2>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://irp.cdn-website.com/a977111b/dms3rep/multi/YOUR.jpg" alt="Image">
+        <div class="slider__info">
+          <h2>Product 9</h2>
+        </div>
+      </div>
+      <div class="slider__item">
+        <img class="slider__image" src="https://irp.cdn-website.com/a977111b/dms3rep/multi/YOUR.jpg" alt="Image">
+        <div class="slider__info">
+          <h2>Product 10</h2>
+        </div>
+      </div>
+    </div>
+    <div class="slider__nav" style="display: flex;justify-content: center;">
+      <button class="slider__nav__button" x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth * -1, behavior: 'smooth'});" x-bind:class="start ? '' : 'slider__nav__button--active'">Previous</button>
+      <button class="slider__nav__button" x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth, behavior: 'smooth'});" x-bind:class="end ? '' : 'slider__nav__button--active'">Next</button>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.js"></script>
+</body>
+</html>
+

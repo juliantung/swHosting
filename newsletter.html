@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Newsletter</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico">
+
+    <!-- PNG versions -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+  
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+  
+    <!-- Manifest (for progressive web apps) -->
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+  <link rel="stylesheet" href="newstyles.css">
+</head>
+<body class="d-flex align-items-center">
+	<div class="container d-flex justify-content-center">
+		<form id="newsletterForm" class="form">
+			<input type="hidden" name="access_key" value="df839469-7072-4818-8962-4362eb379953"> <!-- Replace with your Access Key -->
+
+			<span class="title">Subscribe to our newsletter</span>
+			<p class="description">Be first to receive huge discounts on products!</p>
+			
+			<div>
+			  <input placeholder="Enter your email" type="email" name="email" required>
+			  <button type="submit">Subscribe</button>
+			</div>
+		</form>
+
+		<div id="successMessage" style="display:none; color:green; margin-top:20px;">
+			You have successfully subscribed to our newsletter!
+		</div>
+	</div>
+
+	<script>
+		document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+			event.preventDefault();
+
+			const form = event.target;
+			const formData = new FormData(form);
+			const successMessage = document.getElementById('successMessage');
+
+			fetch('https://api.web3forms.com/submit', {
+				method: 'POST',
+				body: formData
+			})
+			.then(response => response.json())
+			.then(result => {
+				if (result.success) {
+					successMessage.style.display = 'block';
+					form.reset();
+				} else {
+					alert('There was an error subscribing to the newsletter. Please try again.');
+				}
+			})
+			.catch(error => {
+				alert('There was an error subscribing to the newsletter. Please try again.');
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products</title>
+  <link rel="stylesheet" href="catstyles.css">
+  <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico">
+</head>
+<body>
+  <div class="slider" x-data="{start: true, end: false}" style="padding-top: 150px;">
+    <div class="slider__content" x-ref="slider" x-on:scroll.debounce="$refs.slider.scrollLeft == 0 ? start = true : start = false; Math.abs(($refs.slider.scrollWidth - $refs.slider.offsetWidth) - $refs.slider.scrollLeft) < 5 ? end = true : end = false;">
+  
+      <div class="slider__item">
+        <img class="slider__image" src="https://kyson.sg/cdn/shop/files/Pro_frontcopy.jpg?v=1717571663&width=540" alt="Image">
+        <div class="slider__info">
+          <h2>Kyson - Pro</h2>
+        </div>
+      </div>
+      
+      <div class="slider__item">
+        <img class="slider__image" src="https://kyson.sg/cdn/shop/files/Expert_frontcopy.jpg?v=1717571575&width=540" alt="Image">
+        <div class="slider__info">
+          <h2>Kyson - Expert</h2>
+        </div>
+      </div>
+      
+      <div class="slider__item">
+        <img class="slider__image" src="https://kyson.sg/cdn/shop/files/ExpertMax_Front_copy.jpg?v=1717571607&width=540" alt="Image">
+        <div class="slider__info">
+          <h2>Kyson - Expert Max</h2>
+        </div>
+      </div>
+      
+      <div class="slider__item">
+        <img class="slider__image" src="https://kyson.sg/cdn/shop/files/Subzero_Frontcopy.jpg?v=1717571846&width=540" alt="Image">
+        <div class="slider__info">
+          <h2>Kyson - Sub Zero</h2>
+        </div>
+      </div>
+      
+    </div>
+    <div class="slider__nav" style="display: flex;justify-content: center;">
+      <button class="slider__nav__button" x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth * -1, behavior: 'smooth'});" x-bind:class="start ? '' : 'slider__nav__button--active'">Previous</button>
+      <button class="slider__nav__button" x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth, behavior: 'smooth'});" x-bind:class="end ? '' : 'slider__nav__button--active'">Next</button>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.js"></script>
+</body>
+</html>
+    

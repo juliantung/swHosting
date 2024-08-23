@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico">
+
+    <!-- PNG versions -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+
+    <!-- Manifest (for progressive web apps) -->
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+  <title>Feedback</title>
+  <link rel="stylesheet" href="feedbackstyles.css">
+</head>
+<body>
+  <div class="contact__content">
+    <h3 class="contact__title contact__title-form">Please let us know how to improve.</h3>
+
+    <form id="contactForm" class="contact__form">
+        <!-- Replace with your Access Key -->
+        <input type="hidden" name="access_key" value="df839469-7072-4818-8962-4362eb379953">
+
+        <!-- Honeypot Spam Protection -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+        <div class="contact__form-div">
+            <label for="name" class="contact__form-tag">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter name" class="contact__form-input" required>
+        </div>
+
+        <div class="contact__form-div">
+            <label for="email" class="contact__form-tag">Mail</label>
+            <input type="email" id="email" name="email" placeholder="Enter email" class="contact__form-input" required>
+        </div>
+
+        <div class="contact__form-div contact__form-area">
+            <label for="message" class="contact__form-tag">Message</label>
+            <textarea name="message" id="message" placeholder="Write your Message" class="contact__form-input contact__form-textarea" required></textarea>
+        </div>
+
+        <button type="submit" class="button">Send Message</button>
+    </form>
+
+    <div id="successMessage" style="display:none; color:green; margin-top:20px;">
+        Your message has been sent successfully!
+    </div>
+  </div>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+        const successMessage = document.getElementById('successMessage');
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                successMessage.style.display = 'block';
+                form.reset();
+            } else {
+                alert('There was an error submitting the form. Please try again.');
+            }
+        })
+        .catch(error => {
+            alert('There was an error submitting the form. Please try again.');
+        });
+    });
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+:root {
+  --primary-colour: #0B111E;
+  --secondary-colour: hsl(233 80% 70%);
+  --form-bg-colour: linear-gradient(96.5deg, rgba(39,103,187,1) 10.4%, rgba(16,72,144,1) 87.7%);
+  --input-bg-colour: rgba(255, 255, 255, 0.05);
+  --input-border-focus-colour: rgb(99, 102, 241);
+  --button-bg-colour: rgb(75, 77, 219);
+  --body-color: hsl(var(--second-hue), 100%, 99%);
+  --star-colour: hsl(38 90% 55%);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Disable scrolling */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--primary-colour);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* Ensure no scrolling */
+}
+
+.container {
+  width: 100%;
+  max-width: 500px; /* Maximum width for larger screens */
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+  box-sizing: border-box;
+}
+
+.list-container {
+  width: 100%;
+  text-align: center;
+}
+
+.card-link {
+  text-decoration: none; /* Remove underline */
+}
+
+.card {
+  height: 120px;
+  width: 100%;
+  background: var(--primary-colour);
+  margin-top: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.3s;
+  border: 2px solid var(--secondary-colour);
+  position: relative;
+  box-sizing: border-box; /* Include padding and border in height */
+}
+
+.content-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.game-image1,
+.game-image2,
+.game-image3 {
+  width: 70px;
+  height: 70px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  border: 2px solid var(--secondary-colour);
+}
+
+.game-image1 {
+  background-image: url("https://cdn-icons-png.freepik.com/512/4627/4627679.png");
+}
+
+.game-image2 {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/3486/3486510.png");
+}
+
+.game-image3 {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/5602/5602732.png");
+}
+
+.game-name {
+  font-size: 1.5rem;
+  color: var(--secondary-colour);
+  flex: 1;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.rating {
+  font-size: 2rem;
+  text-align: right;
+  position: absolute;
+  right: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .rating,
+.card:focus .rating {
+  opacity: 1;
+}
+
+.list-container:hover .card {
+  filter: blur(5px);
+  opacity: 0.5;
+}
+
+.list-container .card:hover {
+  transform: scale(1.05);
+  filter: blur(0px);
+  opacity: 1;
+  border-color: var(--star-colour);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .card {
+    height: 110px;
+  }
+
+  .game-name {
+    font-size: 1.7rem;
+  }
+
+  .rating {
+    font-size: 2.2rem;
+  }
+}
