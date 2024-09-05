@@ -31,7 +31,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 500px; /* Maximum width for larger screens */
+  max-width: 50vh; /* Maximum width for larger screens */
   display: flex;
   flex-direction: column; /* Align items vertically */
   justify-content: center;
