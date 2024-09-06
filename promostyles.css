@@ -31,12 +31,12 @@ body {
 
 .container {
   width: 100%;
-  max-width: 50vh; /* Maximum width for larger screens */
+  max-width: 100vh; /* Maximum width for larger screens */
   display: flex;
   flex-direction: column; /* Align items vertically */
   justify-content: center;
   align-items: center;
-  height: 50vh; /* Full screen height */
+  height: 100vh; /* Full screen height */
   box-sizing: border-box;
 }
 
